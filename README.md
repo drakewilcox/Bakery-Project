@@ -12,9 +12,9 @@ _This project is an exercise in the using custom classes, namespaces, and auto-i
 
 To use this application, follow the following instructions. 
 
-##### For macOS: 
+#### Installing C# and .NET
 
-_Installing C# and .NET_
+##### For macOS: 
 
 * Dowload [this .NET Core SDK](https://dotnet.microsoft.com/download/thank-you/dotnet-sdk-2.2.106-macos-x64-installer) which will prompt a .pkg file download from Microsoft.
 
@@ -23,7 +23,7 @@ _Installing C# and .NET_
 * Confirm the installation is successful by opening the terminal and running the command ``$ dotnet --version``. You should see something like ``2.2.105`` in response.
 
 ##### For Windows: 
-_Visit the [Microsoft .NET Installation Guide](https://docs.microsoft.com/en-us/dotnet/framework/install/).
+* Visit the [Microsoft .NET Installation Guide](https://docs.microsoft.com/en-us/dotnet/framework/install/).
 
 #### Application Setup:
 _Clone this repository via Terminal using the following commands:_
@@ -42,7 +42,10 @@ No known bugs at this time.
 
 ## Technologies Used
 
-_ C#, .NET, git, VS Code_
+* C#
+* .NET
+* git
+* VS Code
 
 ### License
 

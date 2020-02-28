@@ -1,0 +1,11 @@
+/Users/drakewilcox/Desktop/bakery-project/obj/Debug/netcoreapp2.2/Bakery.csprojAssemblyReference.cache
+/Users/drakewilcox/Desktop/bakery-project/obj/Debug/netcoreapp2.2/Bakery.csproj.CoreCompileInputs.cache
+/Users/drakewilcox/Desktop/bakery-project/obj/Debug/netcoreapp2.2/Bakery.AssemblyInfoInputs.cache
+/Users/drakewilcox/Desktop/bakery-project/obj/Debug/netcoreapp2.2/Bakery.AssemblyInfo.cs
+/Users/drakewilcox/Desktop/bakery-project/bin/Debug/netcoreapp2.2/Bakery.deps.json
+/Users/drakewilcox/Desktop/bakery-project/bin/Debug/netcoreapp2.2/Bakery.runtimeconfig.json
+/Users/drakewilcox/Desktop/bakery-project/bin/Debug/netcoreapp2.2/Bakery.runtimeconfig.dev.json
+/Users/drakewilcox/Desktop/bakery-project/bin/Debug/netcoreapp2.2/Bakery.dll
+/Users/drakewilcox/Desktop/bakery-project/bin/Debug/netcoreapp2.2/Bakery.pdb
+/Users/drakewilcox/Desktop/bakery-project/obj/Debug/netcoreapp2.2/Bakery.dll
+/Users/drakewilcox/Desktop/bakery-project/obj/Debug/netcoreapp2.2/Bakery.pdb
