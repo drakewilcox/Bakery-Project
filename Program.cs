@@ -14,6 +14,19 @@ namespace CustomerOrder
       string[] pastries = { "Almond Croissant", "Rhubarb Tart", "Eclair", "Baklava"   };
       decimal[] pastryPrices = { 4.00m , 3.50m, 4.50m, 2.50m };
 
+    
+
+      Bread countryBread = new Bread("Country Bread", 5.00m);
+      Bread walnutBread = new Bread("Walnut Bread", 6.50m);
+      Bread frenchRye = new Bread("French Rye", 7.00m);
+      Bread Ciabatta = new Bread("Ciabata", 7.50m);
+      
+      Pastry almondCroissant = ("Almond Croissant", 4.00m);
+      Pastry rhubarbTart = ("Rhubarb Tart", 3.50m);
+      Pastry eclair = ("Eclair", 4.50m);
+      Pastry baklava = ("Baklava", 2.50m);
+
+
       Console.WriteLine("Welcome to Pierre's Bakery! [Press ENTER]");
       Console.ReadLine();
       Console.WriteLine("{0,21}\n", "PIERRE'S BAKERY");
@@ -30,6 +43,8 @@ namespace CustomerOrder
       for (int ctr = 0; ctr < pastries.Length; ctr++)
         Console.WriteLine("{0,-20} {1,5:N1}", pastries[ctr], ("$" + pastryPrices[ctr]));
       Console.WriteLine("");
+
+      Console.WriteLine()
     }
   }
 }
