@@ -1,20 +1,21 @@
 using System;
+using System.Collections.Generic;
 
 namespace Bakery.Models {
 
   public class Bread
   {
     public string BreadType { get; set; }
-    public int Price { get; set; }
+    public decimal Price { get; set; }
+    public int BreadCount { get; set; }
   
-    public Bread (string breadType, decimal price)
+    public Bread (string breadType, decimal price, int breadCount)
     {
       BreadType = breadType;
       Price = price;
+      BreadCount = breadCount;
     }
   }
-
-
 
 
 

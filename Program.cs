@@ -1,6 +1,6 @@
 using System; 
 using System.Collections.Generic; 
-// using Bakery.Models; 
+using Bakery.Models; 
 
 namespace CustomerOrder
 {
@@ -14,20 +14,20 @@ namespace CustomerOrder
       string[] pastries = { "Almond Croissant", "Rhubarb Tart", "Eclair", "Baklava"   };
       decimal[] pastryPrices = { 4.00m , 3.50m, 4.50m, 2.50m };
 
-      List<Bread> Breads = new List<Bread>() { countryBread, walnutBread, frenchRye, ciabatta };
 
       Bread countryBread = new Bread("Country Bread", 5.00m, 1);
       Bread walnutBread = new Bread("Walnut Bread", 6.50m, 1);
       Bread frenchRye = new Bread("French Rye", 7.00m, 1);
       Bread ciabatta = new Bread("Ciabata", 7.50m, 1);
       
+      List<Bread> Breads = new List<Bread>() { countryBread, walnutBread, frenchRye, ciabatta };
+
+      Pastry almondCroissant = new Pastry("Almond Croissant", 4.00m, 1);
+      Pastry rhubarbTart = new Pastry("Rhubarb Tart", 3.50m, 1);
+      Pastry eclair = new Pastry("Eclair", 4.50m, 1);
+      Pastry baklava = new Pastry("Baklava", 2.50m, 1);
+
       List<Pastry> Pastries = new List<Pastry>() { almondCroissant, rhubarbTart, eclair, baklava };
-
-      Pastry almondCroissant = ("Almond Croissant", 4.00m, 1);
-      Pastry rhubarbTart = ("Rhubarb Tart", 3.50m, 1);
-      Pastry eclair = ("Eclair", 4.50m, 1);
-      Pastry baklava = ("Baklava", 2.50m, 1);
-
 
       Console.WriteLine("Welcome to Pierre's Bakery! [Press ENTER]");
       Console.ReadLine();
@@ -46,7 +46,6 @@ namespace CustomerOrder
         Console.WriteLine("{0,-20} {1,5:N1}", pastries[ctr], ("$" + pastryPrices[ctr]));
       Console.WriteLine("");
 
-      Console.WriteLine()
     }
   }
 }
