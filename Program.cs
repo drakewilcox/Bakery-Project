@@ -11,7 +11,7 @@ namespace CustomerOrder
       public static Bread frenchRye = new Bread("French Rye", 7.00m, 1);
       public static Bread ciabatta = new Bread("Ciabata", 7.50m, 1);
       
-      List<Bread> Breads = new List<Bread>() { countryBread, walnutBread, frenchRye, ciabatta };
+      public static List<Bread> Breads = new List<Bread>() { countryBread, walnutBread, frenchRye, ciabatta };
 
       public static Pastry almondCroissant = new Pastry("Almond Croissant", 4.00m, 1);
       public static Pastry rhubarbTart = new Pastry("Rhubarb Tart", 3.50m, 1);
@@ -71,8 +71,20 @@ namespace CustomerOrder
 
       public static void BreadOrder()
       {
-            Console.WriteLine(countryBread.BreadType);
         Console.WriteLine("BreadOrder Successful");
+        Console.WriteLine("What Type of Bread would you like to Order?");
+        string breadOrderType = Console.ReadLine();
+        Console.WriteLine("How Many Would you like to order?")
+        string breadOrderAmount = Console.ReadLine()
+        foreach (Bread goodEat in Breads)
+        {
+          if (goodEat.BreadType == breadOrderType)
+          {
+            Console.WriteLine(goodEat.Price);
+          }
+
+        }
+        // Console.WriteLine(breadOrderType);
        
       }
 
