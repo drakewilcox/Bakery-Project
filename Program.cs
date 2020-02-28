@@ -14,17 +14,19 @@ namespace CustomerOrder
       string[] pastries = { "Almond Croissant", "Rhubarb Tart", "Eclair", "Baklava"   };
       decimal[] pastryPrices = { 4.00m , 3.50m, 4.50m, 2.50m };
 
-    
+      List<Bread> Breads = new List<Bread>() { countryBread, walnutBread, frenchRye, ciabatta };
 
-      Bread countryBread = new Bread("Country Bread", 5.00m);
-      Bread walnutBread = new Bread("Walnut Bread", 6.50m);
-      Bread frenchRye = new Bread("French Rye", 7.00m);
-      Bread Ciabatta = new Bread("Ciabata", 7.50m);
+      Bread countryBread = new Bread("Country Bread", 5.00m, 1);
+      Bread walnutBread = new Bread("Walnut Bread", 6.50m, 1);
+      Bread frenchRye = new Bread("French Rye", 7.00m, 1);
+      Bread ciabatta = new Bread("Ciabata", 7.50m, 1);
       
-      Pastry almondCroissant = ("Almond Croissant", 4.00m);
-      Pastry rhubarbTart = ("Rhubarb Tart", 3.50m);
-      Pastry eclair = ("Eclair", 4.50m);
-      Pastry baklava = ("Baklava", 2.50m);
+      List<Pastry> Pastries = new List<Pastry>() { almondCroissant, rhubarbTart, eclair, baklava };
+
+      Pastry almondCroissant = ("Almond Croissant", 4.00m, 1);
+      Pastry rhubarbTart = ("Rhubarb Tart", 3.50m, 1);
+      Pastry eclair = ("Eclair", 4.50m, 1);
+      Pastry baklava = ("Baklava", 2.50m, 1);
 
 
       Console.WriteLine("Welcome to Pierre's Bakery! [Press ENTER]");
