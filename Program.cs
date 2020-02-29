@@ -6,10 +6,10 @@ namespace CustomerOrder
 {
   public class Program
   {
-      public static Bread countryBread = new Bread("Country Bread", 5.00m, 1);
-      public static Bread walnutBread = new Bread("Walnut Bread", 6.50m, 1);
-      public static Bread frenchRye = new Bread("French Rye", 7.00m, 1);
-      public static Bread ciabatta = new Bread("Ciabata", 7.50m, 1);
+      public static Bread countryBread = new Bread("Country Bread", 5.00m, 1, 5.00m);
+      public static Bread walnutBread = new Bread("Walnut Bread", 6.50m, 0, 5.00m);
+      public static Bread frenchRye = new Bread("French Rye", 7.00m, 0, 7.00m);
+      public static Bread ciabatta = new Bread("Ciabata", 7.50m, 0, 7.50m);
       
       public static List<Bread> Breads = new List<Bread>() { countryBread, walnutBread, frenchRye, ciabatta };
 
@@ -52,7 +52,7 @@ namespace CustomerOrder
 
       public static void OrderType()
       {
-      Console.WriteLine("Would you like to order add a Bread OR Pastry to your cart? [Type Bread or Pastry]");
+      Console.WriteLine("Would you like to add a Bread OR Pastry to your cart? [Type Bread or Pastry]");
       string orderType = Console.ReadLine();
         if(orderType == "Bread")
         {
@@ -71,15 +71,18 @@ namespace CustomerOrder
 
       public static void BreadOrder()
       {
-        Console.WriteLine("BreadOrder Successful");
         Console.WriteLine("What Type of Bread would you like to Order?");
         string breadOrderType = Console.ReadLine();
-        Console.WriteLine("How Many Would you like to order?")
-        string breadOrderAmount = Console.ReadLine()
+        Console.WriteLine("How Many of the" + breadOrderType + "would you like to order?");
+        int breadOrderAmount = int.Parse(Console.ReadLine());
+        
         foreach (Bread goodEat in Breads)
         {
           if (goodEat.BreadType == breadOrderType)
           {
+            goodEat.BreadMod(breadOrderAmount);
+            Console.WriteLine(goodEat.BreadType);
+            Console.WriteLine(goodEat.BreadCount);
             Console.WriteLine(goodEat.Price);
           }
 
