@@ -9,7 +9,7 @@ namespace CustomerOrder
       public static Bread countryBread = new Bread("Country Bread", 5.00m, 1, 5.00m);
       public static Bread walnutBread = new Bread("Walnut Bread", 6.50m, 0, 5.00m);
       public static Bread frenchRye = new Bread("French Rye", 7.00m, 0, 7.00m);
-      public static Bread ciabatta = new Bread("Ciabata", 7.50m, 0, 7.50m);
+      public static Bread ciabatta = new Bread("Ciabatta", 7.50m, 0, 7.50m);
       
       public static List<Bread> Breads = new List<Bread>() { countryBread, walnutBread, frenchRye, ciabatta };
 
@@ -73,7 +73,7 @@ namespace CustomerOrder
       {
         Console.WriteLine("What Type of Bread would you like to Order?");
         string breadOrderType = Console.ReadLine();
-        Console.WriteLine("How Many of the" + breadOrderType + "would you like to order?");
+        Console.WriteLine("How Many of the " + breadOrderType + " would you like to order?");
         int breadOrderAmount = int.Parse(Console.ReadLine());
         
         foreach (Bread goodEat in Breads)
@@ -81,9 +81,14 @@ namespace CustomerOrder
           if (goodEat.BreadType == breadOrderType)
           {
             goodEat.BreadMod(breadOrderAmount);
-            Console.WriteLine(goodEat.BreadType);
-            Console.WriteLine(goodEat.BreadCount);
-            Console.WriteLine(goodEat.Price);
+            Console.WriteLine("--------------------------");
+            Console.WriteLine("Bread Type: " + goodEat.BreadType);
+            Console.WriteLine("Price for Each: $" + goodEat.SetPrice);
+            Console.WriteLine("Amount: " + goodEat.BreadCount);
+            Console.WriteLine("");
+           
+            Console.WriteLine("YOUR TOTAL = $" + goodEat.Price);
+            BreadOrder();
           }
 
         }
