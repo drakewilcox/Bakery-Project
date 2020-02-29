@@ -28,10 +28,9 @@ namespace CustomerOrder
       string[] pastries = { "Almond Croissant", "Rhubarb Tart", "Eclair", "Baklava" };
       decimal[] pastryPrices = { 2.00m , 3.50m, 4.50m, 2.50m };
 
-
       Console.WriteLine("Welcome to Pierre's Bakery! [Press ENTER]");
-       
       Console.ReadLine();
+
       Console.WriteLine("{0,21}\n", "PIERRE'S BAKERY");
       Console.WriteLine("{0,15}\n", "MENU");
       Console.WriteLine("--------------------------");
@@ -73,13 +72,13 @@ namespace CustomerOrder
       {
         Console.WriteLine("What Type of Bread would you like to Order?");
         string breadOrderType = Console.ReadLine();
-        Console.WriteLine("How Many of the " + breadOrderType + " would you like to order?");
-        int breadOrderAmount = int.Parse(Console.ReadLine());
         
         foreach (Bread goodEat in Breads)
         {
           if (goodEat.BreadType == breadOrderType)
           {
+            Console.WriteLine("How Many of the " + breadOrderType + " would you like to order?");
+            int breadOrderAmount = int.Parse(Console.ReadLine());
             goodEat.BreadMod(breadOrderAmount);
             Console.WriteLine("--------------------------");
             Console.WriteLine("Bread Type: " + goodEat.BreadType);
@@ -90,6 +89,7 @@ namespace CustomerOrder
             Console.WriteLine("YOUR TOTAL = $" + goodEat.Price);
             BreadOrder();
           }
+          
 
         }
         // Console.WriteLine(breadOrderType);
@@ -98,6 +98,7 @@ namespace CustomerOrder
 
       public static void PastryOrder()
       {
+        
         Console.WriteLine("PastryOrder Successful");
       }
       

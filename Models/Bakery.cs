@@ -37,12 +37,15 @@ namespace Bakery.Models {
     public string PastryType { get; set; }
     public decimal PastryPrice { get; set; }
     public int PastryCount { get; set; }
+    public decimal SetPrice { get; set; }
 
-    public Pastry(string pastryType, decimal pastryPrice, int pastryCount)
+    public Pastry(string pastryType, decimal pastryPrice, int pastryCount decimal setPrice)
     {
       PastryType = pastryType;
       PastryPrice = pastryPrice;
       PastryCount = pastryCount;
+      SetPrice = setPrice;
+
     }
   }
 }
