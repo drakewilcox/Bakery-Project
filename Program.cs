@@ -13,12 +13,12 @@ namespace CustomerOrder
       
       public static List<Bread> Breads = new List<Bread>() { countryBread, walnutBread, frenchRye, ciabatta };
 
-      public static Pastry almondCroissant = new Pastry("Almond Croissant", 4.00m, 1);
-      public static Pastry rhubarbTart = new Pastry("Rhubarb Tart", 3.50m, 1);
-      public static Pastry eclair = new Pastry("Eclair", 4.50m, 1);
-      public static Pastry baklava = new Pastry("Baklava", 2.50m, 1);
+      public static Pastry almondCroissant = new Pastry("Almond Croissant", 2.00m, 1, 2.00m);
+      public static Pastry rhubarbTart = new Pastry("Rhubarb Tart", 3.50m, 1, 3.50m);
+      public static Pastry eclair = new Pastry("Eclair", 4.50m, 1, 4.50m);
+      public static Pastry baklava = new Pastry("Baklava", 2.50m, 1, 4.50m);
 
-      List<Pastry> Pastries = new List<Pastry>() { almondCroissant, rhubarbTart, eclair, baklava };
+      public static List<Pastry> Pastries = new List<Pastry>() { almondCroissant, rhubarbTart, eclair, baklava };
 
     public static void Main()
     {
@@ -85,19 +85,35 @@ namespace CustomerOrder
             Console.WriteLine("Price for Each: $" + goodEat.SetPrice);
             Console.WriteLine("Amount: " + goodEat.BreadCount);
             Console.WriteLine("");
-           
             Console.WriteLine("YOUR TOTAL = $" + goodEat.Price);
-            BreadOrder();
+            OrderType();
           }
-          
-
         }
-        // Console.WriteLine(breadOrderType);
-       
       }
-
       public static void PastryOrder()
       {
+        Console.WriteLine("What Type of Pastry would you like to Order?");
+        string pastryOrderType = Console.ReadLine();
+        
+        foreach (Pastry goodEat in Pastries)
+        {
+          if (goodEat.PastryType == pastryOrderType)
+          {
+            Console.WriteLine("How Many of the " + pastryOrderType + " would you like to order?");
+            int pastryOrderAmount = int.Parse(Console.ReadLine());
+            goodEat.PastryMod(pastryOrderAmount);
+            Console.WriteLine("--------------------------");
+            Console.WriteLine("Bread Type: " + goodEat.PastryType);
+            Console.WriteLine("Price for Each: $" + goodEat.SetPrice);
+            Console.WriteLine("Amount: " + goodEat.PastryCount);
+            Console.WriteLine("");
+           
+            Console.WriteLine("YOUR TOTAL = $" + goodEat.PastryPrice);
+            OrderType();
+          }
+          
+          
+        }
         
         Console.WriteLine("PastryOrder Successful");
       }

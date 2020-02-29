@@ -39,13 +39,27 @@ namespace Bakery.Models {
     public int PastryCount { get; set; }
     public decimal SetPrice { get; set; }
 
-    public Pastry(string pastryType, decimal pastryPrice, int pastryCount decimal setPrice)
+    public Pastry(string pastryType, decimal pastryPrice, int pastryCount, decimal setPrice)
     {
       PastryType = pastryType;
       PastryPrice = pastryPrice;
       PastryCount = pastryCount;
       SetPrice = setPrice;
 
+    }
+
+      public void PastryMod(int pastryOrderAmount)
+    {
+      if((PastryCount / 3) == 0)
+      {
+        PastryCount = pastryOrderAmount;
+        PastryPrice = (PastryPrice * pastryOrderAmount) - (SetPrice * (pastryOrderAmount / 3));
+      }
+      else {
+        PastryCount = pastryOrderAmount;
+        PastryPrice = PastryPrice * pastryOrderAmount;
+
+      }
     }
   }
 }
