@@ -19,15 +19,15 @@ namespace Bakery.Models {
     }
     public void BreadMod(int breadOrderAmount)
     {
-      if((BreadCount / 3) == 0)
+      
+      if((breadOrderAmount % 3) == 0)
       {
-        BreadCount = breadOrderAmount;
-        Price = (Price * breadOrderAmount) - (SetPrice * (breadOrderAmount / 3));
+        BreadCount = BreadCount + breadOrderAmount;
+        Price = (SetPrice * BreadCount) - (SetPrice * (BreadCount / 3));
       }
-      else {
-        BreadCount = breadOrderAmount;
-        Price = Price * breadOrderAmount;
-
+      else if (breadOrderAmount % 3 != 0) {
+        BreadCount = BreadCount + breadOrderAmount;
+        Price = Price + (SetPrice * breadOrderAmount);
       }
     }
   }
@@ -45,20 +45,18 @@ namespace Bakery.Models {
       PastryPrice = pastryPrice;
       PastryCount = pastryCount;
       SetPrice = setPrice;
-
     }
-
-      public void PastryMod(int pastryOrderAmount)
+    public void PastryMod(int pastryOrderAmount)
     {
-      if((PastryCount / 3) == 0)
+      if((pastryOrderAmount % 3) == 0)
       {
-        PastryCount = pastryOrderAmount;
-        PastryPrice = (PastryPrice * pastryOrderAmount) - (SetPrice * (pastryOrderAmount / 3));
+        PastryCount = PastryCount + pastryOrderAmount;
+        PastryPrice = ((SetPrice * PastryCount) - ((SetPrice / 2) * (PastryCount / 3)));
       }
-      else {
-        PastryCount = pastryOrderAmount;
-        PastryPrice = PastryPrice * pastryOrderAmount;
-
+      else 
+      {
+        PastryCount = PastryCount + pastryOrderAmount;
+        PastryPrice = PastryPrice + (SetPrice * pastryOrderAmount);
       }
     }
   }
