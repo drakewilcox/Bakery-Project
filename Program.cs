@@ -32,8 +32,8 @@ namespace CustomerOrder
       Console.ReadLine();
       Console.WriteLine("{0,21}\n", "PIERRE'S BAKERY");
       Console.WriteLine("{0,21}\n", "TODAY'S DEALS:");
-      Console.WriteLine("BREAD: BUY 2 GET ONE FREE!");
-      Console.WriteLine("ALMOND CROISSANT: 3 for $5");
+      Console.WriteLine("BREADS: BUY 2 GET ONE FREE!");
+      Console.WriteLine("PASTRIES: BUY 2 GET ONE 1/2 PRICE");
       Console.WriteLine("");
       Console.WriteLine("{0,15}\n", "MENU");
       Console.WriteLine("--------------------------");
@@ -50,7 +50,6 @@ namespace CustomerOrder
       Console.WriteLine("");
       OrderType();
     }
-
     public static void OrderType()
     {
     Console.WriteLine("Would you like to add a Bread OR Pastry to your cart? [Type Bread or Pastry]");
@@ -69,7 +68,6 @@ namespace CustomerOrder
         OrderType();
       }
     }
-
     public static void BreadOrder()
     {
       Console.WriteLine("What Type of Bread would you like to Order?");
@@ -89,6 +87,11 @@ namespace CustomerOrder
           Console.WriteLine("");
           Console.WriteLine("YOUR TOTAL = $" + goodEat.Price);
           OrderType();
+        }
+        else 
+        {
+          Console.WriteLine("Please Re-Enter your Selection!");
+          BreadOrder();
         }
       }
     }
@@ -111,6 +114,11 @@ namespace CustomerOrder
           Console.WriteLine("");
           Console.WriteLine("YOUR TOTAL = $" + goodEat.PastryPrice);
           OrderType();
+        }
+        else
+        {
+          Console.WriteLine("Please Re-Enter your Selection");
+          PastryOrder();
         }
       }
     }
