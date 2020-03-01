@@ -6,19 +6,19 @@ namespace CustomerOrder
 {
   public class Program
   {
-      public static Bread countryBread = new Bread("Country Bread", 5.00m, 1, 5.00m);
-      public static Bread walnutBread = new Bread("Walnut Bread", 6.50m, 0, 5.00m);
-      public static Bread frenchRye = new Bread("French Rye", 7.00m, 0, 7.00m);
-      public static Bread ciabatta = new Bread("Ciabatta", 7.50m, 0, 7.50m);
-      
-      public static List<Bread> Breads = new List<Bread>() { countryBread, walnutBread, frenchRye, ciabatta };
+    public static Bread countryBread = new Bread("Country Bread", 5.00m, 0, 5.00m);
+    public static Bread walnutBread = new Bread("Walnut Bread", 6.50m, 0, 5.00m);
+    public static Bread frenchRye = new Bread("French Rye", 7.00m, 0, 7.00m);
+    public static Bread ciabatta = new Bread("Ciabatta", 7.50m, 0, 7.50m);
+    
+    public static List<Bread> Breads = new List<Bread>() { countryBread, walnutBread, frenchRye, ciabatta };
 
-      public static Pastry almondCroissant = new Pastry("Almond Croissant", 2.00m, 1, 2.00m);
-      public static Pastry rhubarbTart = new Pastry("Rhubarb Tart", 3.50m, 1, 3.50m);
-      public static Pastry eclair = new Pastry("Eclair", 4.50m, 1, 4.50m);
-      public static Pastry baklava = new Pastry("Baklava", 2.50m, 1, 4.50m);
+    public static Pastry almondCroissant = new Pastry("Almond Croissant", 2.00m, 0, 2.00m);
+    public static Pastry rhubarbTart = new Pastry("Rhubarb Tart", 3.50m, 0, 3.50m);
+    public static Pastry eclair = new Pastry("Eclair", 4.50m, 0, 4.50m);
+    public static Pastry baklava = new Pastry("Baklava", 2.50m, 0, 4.50m);
 
-      public static List<Pastry> Pastries = new List<Pastry>() { almondCroissant, rhubarbTart, eclair, baklava };
+    public static List<Pastry> Pastries = new List<Pastry>() { almondCroissant, rhubarbTart, eclair, baklava };
 
     public static void Main()
     {
@@ -30,8 +30,11 @@ namespace CustomerOrder
 
       Console.WriteLine("Welcome to Pierre's Bakery! [Press ENTER]");
       Console.ReadLine();
-
       Console.WriteLine("{0,21}\n", "PIERRE'S BAKERY");
+      Console.WriteLine("{0,21}\n", "TODAY'S DEALS:");
+      Console.WriteLine("BREAD: BUY 2 GET ONE FREE!");
+      Console.WriteLine("ALMOND CROISSANT: 3 for $5");
+      Console.WriteLine("");
       Console.WriteLine("{0,15}\n", "MENU");
       Console.WriteLine("--------------------------");
       Console.WriteLine("");
@@ -45,80 +48,71 @@ namespace CustomerOrder
       for (int ctr = 0; ctr < pastries.Length; ctr++)
         Console.WriteLine("{0,-20} {1,5:N1}", pastries[ctr], ("$" + pastryPrices[ctr]));
       Console.WriteLine("");
-  
       OrderType();
-      }
+    }
 
-      public static void OrderType()
+    public static void OrderType()
+    {
+    Console.WriteLine("Would you like to add a Bread OR Pastry to your cart? [Type Bread or Pastry]");
+    string orderType = Console.ReadLine();
+      if(orderType == "Bread")
       {
-      Console.WriteLine("Would you like to add a Bread OR Pastry to your cart? [Type Bread or Pastry]");
-      string orderType = Console.ReadLine();
-        if(orderType == "Bread")
+        BreadOrder();
+      }
+      else if (orderType == "Pastry")
+      {
+        PastryOrder();
+      }
+      else
+      {
+        Console.WriteLine("Please Re-Enter your selection!");
+        OrderType();
+      }
+    }
+
+    public static void BreadOrder()
+    {
+      Console.WriteLine("What Type of Bread would you like to Order?");
+      string breadOrderType = Console.ReadLine();
+      
+      foreach (Bread goodEat in Breads)
+      {
+        if (goodEat.BreadType == breadOrderType)
         {
-          BreadOrder();
-        }
-        else if (orderType == "Pastry")
-        {
-          PastryOrder();
-        }
-        else
-        {
-          Console.WriteLine("Please Re-Enter your selection!");
+          Console.WriteLine("How Many of the " + breadOrderType + " would you like to order?");
+          int breadOrderAmount = int.Parse(Console.ReadLine());
+          goodEat.BreadMod(breadOrderAmount);
+          Console.WriteLine("--------------------------");
+          Console.WriteLine("Bread Type: " + goodEat.BreadType);
+          Console.WriteLine("Price for Each: $" + goodEat.SetPrice);
+          Console.WriteLine("Amount: " + goodEat.BreadCount);
+          Console.WriteLine("");
+          Console.WriteLine("YOUR TOTAL = $" + goodEat.Price);
           OrderType();
         }
       }
-
-      public static void BreadOrder()
-      {
-        Console.WriteLine("What Type of Bread would you like to Order?");
-        string breadOrderType = Console.ReadLine();
-        
-        foreach (Bread goodEat in Breads)
-        {
-          if (goodEat.BreadType == breadOrderType)
-          {
-            Console.WriteLine("How Many of the " + breadOrderType + " would you like to order?");
-            int breadOrderAmount = int.Parse(Console.ReadLine());
-            goodEat.BreadMod(breadOrderAmount);
-            Console.WriteLine("--------------------------");
-            Console.WriteLine("Bread Type: " + goodEat.BreadType);
-            Console.WriteLine("Price for Each: $" + goodEat.SetPrice);
-            Console.WriteLine("Amount: " + goodEat.BreadCount);
-            Console.WriteLine("");
-            Console.WriteLine("YOUR TOTAL = $" + goodEat.Price);
-            OrderType();
-          }
-        }
-      }
-      public static void PastryOrder()
-      {
-        Console.WriteLine("What Type of Pastry would you like to Order?");
-        string pastryOrderType = Console.ReadLine();
-        
-        foreach (Pastry goodEat in Pastries)
-        {
-          if (goodEat.PastryType == pastryOrderType)
-          {
-            Console.WriteLine("How Many of the " + pastryOrderType + " would you like to order?");
-            int pastryOrderAmount = int.Parse(Console.ReadLine());
-            goodEat.PastryMod(pastryOrderAmount);
-            Console.WriteLine("--------------------------");
-            Console.WriteLine("Bread Type: " + goodEat.PastryType);
-            Console.WriteLine("Price for Each: $" + goodEat.SetPrice);
-            Console.WriteLine("Amount: " + goodEat.PastryCount);
-            Console.WriteLine("");
-           
-            Console.WriteLine("YOUR TOTAL = $" + goodEat.PastryPrice);
-            OrderType();
-          }
-          
-          
-        }
-        
-        Console.WriteLine("PastryOrder Successful");
-      }
+    }
+    public static void PastryOrder()
+    {
+      Console.WriteLine("What Type of Pastry would you like to Order?");
+      string pastryOrderType = Console.ReadLine();
       
-
-    
+      foreach (Pastry goodEat in Pastries)
+      {
+        if (goodEat.PastryType == pastryOrderType)
+        {
+          Console.WriteLine("How Many of the " + pastryOrderType + " would you like to order?");
+          int pastryOrderAmount = int.Parse(Console.ReadLine());
+          goodEat.PastryMod(pastryOrderAmount);
+          Console.WriteLine("--------------------------");
+          Console.WriteLine("Bread Type: " + goodEat.PastryType);
+          Console.WriteLine("Price for Each: $" + goodEat.SetPrice);
+          Console.WriteLine("Amount: " + goodEat.PastryCount);
+          Console.WriteLine("");
+          Console.WriteLine("YOUR TOTAL = $" + goodEat.PastryPrice);
+          OrderType();
+        }
+      }
+    }
   }
 }
