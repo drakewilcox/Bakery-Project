@@ -12,7 +12,7 @@ _This project is an exercise in the using custom classes, namespaces, and auto-i
 
 To use this application, follow the following instructions. 
 
-#### Installing C# and .NET
+#### Installing .NET core
 
 ##### For macOS: 
 
@@ -25,11 +25,22 @@ To use this application, follow the following instructions.
 ##### For Windows: 
 * Visit the [Microsoft .NET Installation Guide](https://docs.microsoft.com/en-us/dotnet/framework/install/).
 
+#### Installing donet script
+
+* After installing .NET Core, run the command `` dotnet tool install -g dotnet-script `` in Terminal. 
+
 #### Application Setup:
 _Clone this repository via Terminal using the following commands:_
 * ``$ cd desktop``
 * ``$ git clone "repository link" ``
 * ``$ cd bakery-project``
+
+_To Run this Console Application, enter the following command in the Terminal:_
+
+* ``$ dotnet run``
+
+_To view the source code of this application, open the folder in the Text Editor of your choice. (Example: to open via Visual Code enter the command ``code . `` in Terminal.)_
+
 
 ## Specifications
 
@@ -50,8 +61,8 @@ No known bugs at this time.
 ## Technologies Used
 
 * C#
-* .NET
-* git
+* .NET Core 2.2
+* Git
 * VS Code
 
 ### License
