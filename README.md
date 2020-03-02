@@ -1,6 +1,6 @@
 # _PIERRE's BAKERY_
 
-#### _First Project for C# unit of Epicodus, 02.14.2020_
+#### _First Project for C# unit of Epicodus, 02.28.2020_
 
 #### By _**Drake Wilcox**_
 
@@ -33,12 +33,19 @@ _Clone this repository via Terminal using the following commands:_
 
 ## Specifications
 
-
+| Specification | Input | Output |
+|:--------------|:------|:-------|
+| When user starts the application a menu with prices is returned | "Enter" | Bakery Menu|
+| User has the ability to choose if they would like to order Pastry or Bread | Pastry | "What type of Pastry would you like to order?"
+| When the user chooses type of bread or pastry, a second question that includes that type is returned | Country Bread | "How many of the Country Bread would you like to order?" |
+| When the user inputs the amount of bread in the order the number and final price is returned | Amount: 2 | $10.00 |
+| When the order amoount is 3, the price is returned as a "2 for 1" discount | Amount: 3 | $10.00 |
+| The returned price still accounts for the 2 for 1 discount when the order number is more than 3 loaves | Amount: 4 | $15.00 |
+| For Pastries, when the order amount is 3, the "Buy 2 get one 1/2 off" discount is applied | 3 ($2 Pastries) | $5.00 |
+| For Pastries, when the order amount is more than 3, the pastry discount is still accounted for | 4 | $7.00 | 
 
 ## Known Bugs
 No known bugs at this time. 
-
-## Support and contact details
 
 ## Technologies Used
 
