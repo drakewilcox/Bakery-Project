@@ -53,6 +53,19 @@ namespace Bakery.Models {
       SetPrice = setPrice;
     }
 
+    private static List<Pastry> _pastryChosen = new List<Pastry>{};
+
+    public static List<Pastry> GetAll()
+    {
+      return _pastryChosen;
+    }
+
+    public void AddList(string newPastryType, decimal newPastryPrice, int newPastryCount, decimal newSetPrice)
+    {
+      Pastry pastryOrdered = new Pastry(newPastryType, newPastryPrice, newPastryCount, newSetPrice);
+      _pastryChosen.Add(pastryOrdered);
+    }
+
 
     public void PastryMod(int pastryOrderAmount)
     {

@@ -1,4 +1,4 @@
-# _PIERRE's BAKERY_
+# _PIERRE'S BAKERY_
 
 #### _First Project for C# unit of Epicodus, 02.28.2020_
 
