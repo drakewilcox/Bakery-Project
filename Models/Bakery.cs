@@ -9,7 +9,7 @@ namespace Bakery.Models {
     public decimal Price { get; set; }
     public int BreadCount { get; set; }
     public decimal SetPrice { get; set; }
-  
+
     public Bread (string breadType, decimal price, int breadCount, decimal setPrice)
     {
       BreadType = breadType;
@@ -17,6 +17,20 @@ namespace Bakery.Models {
       BreadCount = breadCount;
       SetPrice = setPrice;
     }
+
+    private static List<Bread> _breadChosen = new List<Bread>{};
+
+    public static List<Bread> GetAll()
+    {
+      return _breadChosen;
+    }
+    
+    public void AddList(string newBreadType, decimal newPrice, int newBreadCount, decimal newSetPrice)
+    {
+      Bread breadOrdered = new Bread(newBreadType, newPrice, newBreadCount, newSetPrice);
+      _breadChosen.Add(breadOrdered);
+    }
+
     public void BreadMod(int breadOrderAmount)
     {
         BreadCount = BreadCount + breadOrderAmount;
@@ -38,6 +52,8 @@ namespace Bakery.Models {
       PastryCount = pastryCount;
       SetPrice = setPrice;
     }
+
+
     public void PastryMod(int pastryOrderAmount)
     {
         PastryCount = PastryCount + pastryOrderAmount;
