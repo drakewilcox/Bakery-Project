@@ -32,7 +32,7 @@ To use this application, follow the following instructions.
 #### Application Setup:
 _Clone this repository via Terminal using the following commands:_
 * ``$ cd desktop``
-* ``$ git clone "repository link" ``
+* ``$ git clone "https://github.com/drakewilcox/Bakery-Project" ``
 * ``$ cd bakery-project``
 
 _To Run this Console Application, enter the following command in the Terminal:_
@@ -53,7 +53,8 @@ _To view the source code of this application, open the folder in the Text Editor
 | When the order amoount is 3, the price is returned as a "2 for 1" discount | Amount: 3 | $10.00 |
 | The returned price still accounts for the 2 for 1 discount when the order number is more than 3 loaves | Amount: 4 | $15.00 |
 | For Pastries, when the order amount is 3, the "Buy 2 get one 1/2 off" discount is applied | 3 ($2 Pastries) | $5.00 |
-| For Pastries, when the order amount is more than 3, the pastry discount is still accounted for | 4 | $7.00 | 
+| For Pastries, when the order amount is more than 3, the pastry discount is still accounted for | 4 | $7.00 |
+| When a user views the final order, the the total amount of pastries and breads purchased is added together | 1 Country Bread, 1 Almond Croissant, View Order | Total Price = $7.00 | 
 
 ## Known Bugs
 No known bugs at this time. 
