@@ -38,14 +38,18 @@ namespace CustomerOrder
       Console.WriteLine("--------------------------");
       Console.WriteLine("");
       Console.WriteLine("{0,-20} {1,5}\n", "BREADS", "PRICE");
+
       for (int ctr = 0; ctr < breads.Length; ctr++)
         Console.WriteLine("{0,-20} {1,5:N1}", breads[ctr], ("$" + breadPrices[ctr]));
+
       Console.WriteLine("");
       Console.WriteLine("--------------------------");
       Console.WriteLine("");
       Console.WriteLine("{0,-20} {1,5}\n", "PASTRIES", "PRICE");
+
       for (int ctr = 0; ctr < pastries.Length; ctr++)
         Console.WriteLine("{0,-20} {1,5:N1}", pastries[ctr], ("$" + pastryPrices[ctr]));
+
       Console.WriteLine("");
       OrderType();
     }
@@ -72,6 +76,7 @@ namespace CustomerOrder
       Console.WriteLine("What Type of Bread would you like to Order?");
       string breadOrderType = Console.ReadLine().ToLower();
       int doesNotMatchCount = 0;
+
       foreach (Bread goodEat in Breads)
       {
         if (goodEat.BreadType.ToLower() == breadOrderType)
@@ -100,6 +105,7 @@ namespace CustomerOrder
       Console.WriteLine("What Type of Pastry would you like to Order?");
       string pastryOrderType = Console.ReadLine().ToLower();
       int doesNotMatchCount = 0;
+
       foreach (Pastry goodEat in Pastries)
       {
         if (goodEat.PastryType.ToLower() == pastryOrderType)
@@ -107,7 +113,6 @@ namespace CustomerOrder
           Console.WriteLine("How Many of the " + goodEat.PastryType + " would you like to order?");
           int pastryOrderAmount = int.Parse(Console.ReadLine());
           goodEat.PastryMod(pastryOrderAmount);
-
           goodEat.AddList(goodEat.PastryType, goodEat.PastryPrice, goodEat.PastryCount, goodEat.SetPrice);
           Console.WriteLine(goodEat.PastryCount + " of the " + goodEat.PastryType + " have been added to your order.");
           AddOrView();
@@ -143,8 +148,12 @@ namespace CustomerOrder
       Console.WriteLine("YOUR ORDER: ");
       Console.WriteLine();
       Console.WriteLine("BREADS:");
-
       List<Bread> finalOrder = Bread.GetAll();
+      if ((finalOrder.Count) == 0)
+      {
+      Console.WriteLine();
+      Console.WriteLine("No Bread Ordered");
+      }
 
       foreach (Bread thisBread in finalOrder)
       {
@@ -154,10 +163,16 @@ namespace CustomerOrder
         Console.WriteLine("AMOUNT: " + thisBread.BreadCount);
         Console.WriteLine("PRICE: " + thisBread.Price);
       }
-      
+
       Console.WriteLine();
       Console.WriteLine("PASTRIES:");
       List<Pastry> finalPastryOrder = Pastry.GetAll();
+      if ((finalPastryOrder.Count) == 0)
+      {
+      Console.WriteLine();
+      Console.WriteLine("No Pastries Ordered");
+      }
+      
       foreach (Pastry thisPastry in finalPastryOrder)
       {
         finalPrice = thisPastry.PastryPrice + finalPrice;
@@ -166,7 +181,6 @@ namespace CustomerOrder
         Console.WriteLine("AMOUNT: " + thisPastry.PastryCount);
         Console.WriteLine("PRICE: " + thisPastry.PastryPrice);
       }
-
       Console.WriteLine();
       Console.WriteLine("TOTAL PRICE: " + finalPrice);
       Console.WriteLine("Thank You!");
